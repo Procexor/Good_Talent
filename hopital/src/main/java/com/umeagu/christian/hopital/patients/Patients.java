@@ -1,17 +1,22 @@
-package com.umeagu.christian.hopital.hospitalPatients;
+package com.umeagu.christian.hopital.patients;
 
-import java.time.LocalDate;
+import java.util.Date;
 import java.util.UUID;
 
-public class HospitalPatients {
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+public class Patients {
+
 
 	private final UUID id;
 	private String name;
 	private int age;
-	private LocalDate last_visit_date;
+
+	private Date last_visit_date;
 
 
-	public HospitalPatients(UUID id, String name, int age, LocalDate last_visit_date) {
+	public Patients(@JsonProperty("id") UUID id, @JsonProperty("name") String name, @JsonProperty("age") int age,
+			@JsonProperty("last_visit_date") Date last_visit_date) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -35,11 +40,11 @@ public class HospitalPatients {
 		this.age = age;
 	}
 
-	public LocalDate getLast_visit_date() {
+	public Date getLast_visit_date() {
 		return last_visit_date;
 	}
 
-	public void setLast_visit_date(LocalDate last_visit_date) {
+	public void setLast_visit_date(Date last_visit_date) {
 		this.last_visit_date = last_visit_date;
 	}
 
@@ -52,6 +57,5 @@ public class HospitalPatients {
 		return "HospitalPatients [id=" + id + ", name=" + name + ", age=" + age + ", last_visit_date=" + last_visit_date
 				+ "]";
 	}
-	
-	
+
 }
